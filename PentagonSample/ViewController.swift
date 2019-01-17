@@ -112,14 +112,16 @@ class ViewController: UIViewController {
             
             // for _ in 0 ..< sides {
             angle += theta
-            
+        
+        
+        
             let corner1 = CGPoint(x: center.x + (radius - cornerRadius) * cos(angle), y: center.y + (radius - cornerRadius) * sin(angle))
             let tip = CGPoint(x: center.x + radius * cos(angle), y: center.y + radius * sin(angle))
             let start = CGPoint(x: corner1.x + cornerRadius * cos(angle - theta), y: corner1.y + cornerRadius * sin(angle - theta))
             let end = CGPoint(x: corner1.x + cornerRadius * cos(angle + theta), y: corner1.y + cornerRadius * sin(angle + theta))
             
-            //path1.addLine(to: end)
-            path1.addQuadCurve(to: end, controlPoint: start)
+            path1.addLine(to: end)
+            //path1.addQuadCurve(to: end, controlPoint: tip)
             path1.close()
         
         //Second Path
@@ -173,38 +175,50 @@ class ViewController: UIViewController {
         //path1.addQuadCurve(to: end, controlPoint: tip)
         path5.close()
         
+        
 
      //   for i in 0 ..< path.count{
         
         border1.path = path1.cgPath
-        border1.lineWidth = lineWidth
+       border1.lineWidth = lineWidth
         border1.strokeColor = boderColor
         border1.fillColor = contentColor
+        let image = UIImage(named: "download") // Assign your image
+        border1.fillColor = UIColor(patternImage: image!).cgColor
         imageView.layer.addSublayer(border1)
  
-        
+
         border2.path = path2.cgPath
         border2.lineWidth = lineWidth
         border2.strokeColor = boderColor
         border2.fillColor = contentColor
+        let image2 = UIImage(named: "download") // Assign your image
+        border2.fillColor = UIColor(patternImage: image!).cgColor
         imageView.layer.addSublayer(border2)
         
         border3.path = path3.cgPath
         border3.lineWidth = lineWidth
         border3.strokeColor = boderColor
         border3.fillColor = contentColor
+        let image3 = UIImage(named: "download") // Assign your image
+        border3.fillColor = UIColor(patternImage: image!).cgColor
         imageView.layer.addSublayer(border3)
         
         border4.path = path4.cgPath
         border4.lineWidth = lineWidth
         border4.strokeColor = boderColor
         border4.fillColor = contentColor
+        let image4 = UIImage(named: "download") // Assign your image
+        border4.fillColor = UIColor(patternImage: image!).cgColor
         imageView.layer.addSublayer(border4)
         
         border5.path = path5.cgPath
         border5.lineWidth = lineWidth
         border5.strokeColor = boderColor
         border5.fillColor = contentColor
+        let image5 = UIImage(named: "download") // Assign your image
+        border5.fillColor = UIColor(patternImage: image5!).cgColor
+        border5
         imageView.layer.addSublayer(border5)
         
     //}
